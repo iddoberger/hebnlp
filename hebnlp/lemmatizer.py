@@ -12,7 +12,7 @@ class Lemmatizer:
         self.lemma_dict = Lemmatizer._create_lemma_dict()
 
     def get_lemma(self, word) -> Union[list, str, None]:
-        lemma_list= self.lemma_dict.get(word, None)
+        lemma_list = self.lemma_dict.get(word, None)
         if lemma_list:
             if len(lemma_list) > 1:
                 return lemma_list
@@ -23,7 +23,7 @@ class Lemmatizer:
         lemma_dict = defaultdict(list)
         for file_name in os.listdir(str(data_path)):
             file_path = data_path / file_name
-            with open(file_path, 'r') as csv_file:
+            with open(str(file_path), 'r') as csv_file:
                 csv_reader = csv.reader(csv_file)
                 for row in csv_reader:
                     form = row[0]
